@@ -1,0 +1,84 @@
+/* ===== CONTENEDOR ===== */
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: auto; /* 🔥 permite hover */
+}
+
+/* ===== GRID ===== */
+.background__grid {
+  grid-template-columns: repeat(20, 200px);
+  display: grid;
+  gap: 6px;
+
+  animation: moveHorizontal 50s linear infinite;
+}
+
+/* ===== ANIMACIÓN ===== */
+@keyframes moveHorizontal {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== IMÁGENES ===== */
+.background__grid img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+
+  border-radius: 4px;
+
+  filter: brightness(0.6) blur(0.5px);
+  transition: all 0.4s ease, filter 0.3s ease;
+}
+
+/* 🔥 HOVER NETFLIX */
+.background__grid img:hover {
+  transform: scale(1.4);
+  z-index: 10;
+
+  filter: brightness(1) blur(0);
+}
+
+/* 🔥 PAUSA AL HOVER */
+.background__grid:hover {
+  animation-play-state: paused;
+}
+
+/* ===== OVERLAY SUAVE ===== */
+.background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(0,0,0,0.1),
+    rgba(0,0,0,0.7)
+  );
+}
+
+.background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: rgba(0, 0, 0, 0.4);
+}
+
+
+
+/* .background__grid img:hover {
+  transform: scale(1.1);
+  filter: brightness(1) blur(0);
+
+  z-index: 5;
+} */

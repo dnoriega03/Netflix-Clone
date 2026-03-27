@@ -1,0 +1,52 @@
+.row {
+  margin-left: 20px;
+  color: white;
+}
+
+.row__posters {
+  display: flex;
+  overflow-x: scroll;
+  padding: 20px;
+  gap: 10px;
+}
+
+.row__posters::-webkit-scrollbar {
+  display: none;
+}
+
+.row__poster {
+  max-height: 160px;
+  object-fit: contain;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* 🔥 EFECTO HOVER */
+.row__poster:hover {
+  transform: scale(1.2);
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.row__posters {
+  position: relative;
+}
+
+.row__poster {
+  position: relative;
+}
+
+.row__posters:hover .row__poster {
+  opacity: 0.5;
+}
+
+.row__posters .row__poster:hover {
+  opacity: 1;
+  transform: scale(1.25);
+}
+
+.row iframe{
+  margin-top:20px;
+  border-radius:10px;
+  }
